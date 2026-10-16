@@ -67,6 +67,20 @@ img{max-width:100%}
 input{transition:border-color .15s ease-out,box-shadow .15s ease-out}
 input:focus{outline:none;border-color:#0E8A45!important;box-shadow:0 0 0 4px rgba(43,217,107,.25)}
 a:focus-visible,button:focus-visible{outline:3px solid #2BD96B;outline-offset:3px}
+@media (max-width: 1100px){.navlinks a.plain{display:none!important}}
+.stat{font-size:clamp(30px,8.5vw,40px)!important;white-space:nowrap}
+@media (min-width: 700px){.stats-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important}.stat{font-size:clamp(24px,3.1vw,40px)!important}}
+.steps-grid{grid-template-columns:1fr!important}
+@media (min-width: 600px){.steps-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}.step-title{min-height:2.4em}}
+@media (min-width: 1000px){.steps-grid{grid-template-columns:repeat(4,minmax(0,1fr))!important}}
+.col-end{justify-content:flex-start!important}
+@media (min-width: 980px){.col-end{justify-content:flex-end!important}}
+@media (max-width: 640px){
+.route{display:none}
+.cta-row{flex-direction:column;align-items:stretch!important}
+.cta-row>a,.btn-block-sm{justify-content:center;align-self:stretch!important;width:100%}
+.demo-total{font-size:28px!important}
+}
 @media (max-width: 760px){
 .navlinks a.plain,.navlinks a.hide-sm{display:none!important}
 .navin{flex-wrap:nowrap!important;padding-top:12px!important;padding-bottom:12px!important}
@@ -98,25 +112,25 @@ a:focus-visible,button:focus-visible{outline:3px solid #2BD96B;outline-offset:3p
         <span class="in" style="align-self: flex-start; display: inline-flex; align-items: center; gap: 10px; padding: 8px 16px; border-radius: 999px; border: 1px solid #2A3530; color: #C9D2CC; font-size: 15px; font-weight: 500"><span class="pulse" style="flex-shrink: 0; width: 8px; height: 8px; border-radius: 50%; background: #2BD96B"></span>Cargas nacionales e internacionales · Argentina y Latinoamérica</span>
         <h1 class="in d1" style="margin: 0; font-size: clamp(44px, 6vw, 78px); line-height: 1.02; font-weight: 800; letter-spacing: -0.03em">Tu carga, con camión <span style="color: #2BD96B">en minutos.</span></h1>
         <p class="in d2" style="margin: 0; max-width: 540px; font-size: 20px; line-height: 1.5; color: #B9C4BD">TCG Cargas conecta empresas que necesitan mover mercadería con camioneros verificados, dentro del país y hacia toda Latinoamérica. Publicás la carga, ves el precio al instante y seguís el viaje en el mapa.</p>
-        <div class="in d3" style="display: flex; flex-wrap: wrap; gap: 14px">
+        <div class="in d3 cta-row" style="display: flex; flex-wrap: wrap; gap: 14px">
           <a href="#empresas" class="btn" style="text-decoration: none; display: inline-flex; align-items: center; min-height: 56px; padding: 0 28px; border-radius: 14px; background: #2BD96B; color: #0B0F0D; font-size: 18px; font-weight: 700">Publicar una carga</a>
           <a href="#camioneros" class="btn" style="text-decoration: none; display: inline-flex; align-items: center; min-height: 56px; padding: 0 28px; border-radius: 14px; border: 1.5px solid #3A4842; color: #FFFFFF; font-size: 18px; font-weight: 600">Soy camionero</a>
         </div>
       </div>
-      <div id="ingresar" style="flex: 1 1 400px; min-width: 0; display: flex; justify-content: center">
+      <div id="ingresar" class="col-end" style="flex: 1 1 400px; min-width: 0; display: flex; justify-content: center">
         <form id="login-form" class="in d3" style="width: 100%; max-width: 460px; padding: 36px; border-radius: 28px; background: #FFFFFF; color: #0B0F0D; display: flex; flex-direction: column; gap: 20px; box-shadow: 0 40px 80px rgba(0,0,0,0.45)">
           <div style="display: flex; flex-direction: column; gap: 6px">
             <h2 style="margin: 0; font-size: 28px; font-weight: 800; letter-spacing: -0.02em">Ingresá a tu cuenta</h2>
             <p style="margin: 0; font-size: 16px; color: #4A524D">Camioneros, empresas y operadores.</p>
           </div>
           <div style="display: flex; flex-direction: column; gap: 8px">
-            <label for="login-email" style="font-size: 15px; font-weight: 600">Email</label>
-            <input id="login-email" name="email" type="email" autocomplete="email" placeholder="tu@email.com" style="height: 52px; padding: 0 16px; border-radius: 12px; border: 1.5px solid #D0D6D2; background: #F7F9F7; font-family: 'Outfit', sans-serif; font-size: 17px; color: #0B0F0D">
+            <label for="login-email" style="font-size: 15px; font-weight: 600">Correo electrónico</label>
+            <input id="login-email" name="email" type="email" autocomplete="email" placeholder="tu@correo.com" style="height: 52px; padding: 0 16px; border-radius: 12px; border: 1.5px solid #D0D6D2; background: #F7F9F7; font-family: 'Outfit', sans-serif; font-size: 17px; color: #0B0F0D">
           </div>
           <div style="display: flex; flex-direction: column; gap: 8px">
-            <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px">
+            <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 4px 12px">
               <label for="login-pass" style="font-size: 15px; font-weight: 600">Contraseña</label>
-              <a id="forgot-link" href="#ingresar" style="font-size: 15px; font-weight: 600; color: #0E8A45; text-decoration: none">¿Olvidaste tu contraseña?</a>
+              <a id="forgot-link" href="#ingresar" style="white-space: nowrap; font-size: 15px; font-weight: 600; color: #0E8A45; text-decoration: none">¿Olvidaste tu contraseña?</a>
             </div>
             <input id="login-pass" name="password" type="password" autocomplete="current-password" placeholder="••••••••" style="height: 52px; padding: 0 16px; border-radius: 12px; border: 1.5px solid #D0D6D2; background: #F7F9F7; font-family: 'Outfit', sans-serif; font-size: 17px; color: #0B0F0D">
           </div>
@@ -134,12 +148,12 @@ a:focus-visible,button:focus-visible{outline:3px solid #2BD96B;outline-offset:3p
       </div>
     </div>
 
-    <div style="max-width: 1200px; margin: 0 auto; padding: 24px 24px 48px">
+    <div class="route" style="max-width: 1200px; margin: 0 auto; padding: 24px 24px 48px">
       <svg viewBox="0 0 1200 190" width="100%" role="img" aria-label="Animación: un camión va de Córdoba a Buenos Aires y vuelve cargado" style="display: block; overflow: visible; font-family: 'Outfit', sans-serif">
         <path d="M60 120 L250 110 L470 80 L690 110 L900 130 L1130 120" fill="none" stroke="#2A3530" stroke-width="2" stroke-dasharray="4 8"></path>
         <path class="ida" pathLength="1" d="M470 80 L690 110 L900 130" fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path>
         <path class="vuelta" pathLength="1" d="M900 130 C 830 24, 560 4, 470 80" fill="none" stroke="#2BD96B" stroke-width="4" stroke-linecap="round"></path>
-        <text class="vlabel" x="690" y="18" text-anchor="middle" fill="#2BD96B" font-size="17" font-weight="700">Vuelta cargado</text>
+        <text class="vlabel" x="690" y="18" text-anchor="middle" fill="#2BD96B" font-size="17" font-weight="700">Vuelta con carga</text>
         <circle class="ring" cx="470" cy="80" r="6" fill="none" stroke="#2BD96B" stroke-width="2"></circle>
         <circle cx="60" cy="120" r="5" fill="#3A4842"></circle>
         <circle cx="250" cy="110" r="5" fill="#3A4842"></circle>
@@ -157,17 +171,17 @@ a:focus-visible,button:focus-visible{outline:3px solid #2BD96B;outline-offset:3p
     </div>
 
     <div style="border-top: 1px solid #1E2622">
-      <div style="max-width: 1200px; margin: 0 auto; padding: 36px 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 32px">
+      <div class="stats-grid" style="max-width: 1200px; margin: 0 auto; padding: 36px 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 32px">
         <div style="display: flex; flex-direction: column; gap: 6px">
-          <span id="cnt-camiones" style="font-size: 44px; font-weight: 800; letter-spacing: -0.02em; color: #2BD96B; font-variant-numeric: tabular-nums">+1.900</span>
+          <span id="cnt-camiones" class="stat" style="font-size: 44px; font-weight: 800; letter-spacing: -0.02em; color: #2BD96B; font-variant-numeric: tabular-nums">+1.900</span>
           <span style="font-size: 17px; color: #B9C4BD">camiones en la red</span>
         </div>
         <div style="display: flex; flex-direction: column; gap: 6px">
-          <span id="cnt-anios" style="font-size: 44px; font-weight: 800; letter-spacing: -0.02em; color: #FFFFFF; font-variant-numeric: tabular-nums">35 años</span>
+          <span id="cnt-anios" class="stat" style="font-size: 44px; font-weight: 800; letter-spacing: -0.02em; color: #FFFFFF; font-variant-numeric: tabular-nums">35 años</span>
           <span style="font-size: 17px; color: #B9C4BD">moviendo cargas en el rubro</span>
         </div>
         <div style="display: flex; flex-direction: column; gap: 6px">
-          <span style="font-size: 44px; font-weight: 800; letter-spacing: -0.02em; color: #FFFFFF">Argentina + Latam</span>
+          <span class="stat" style="font-size: 44px; font-weight: 800; letter-spacing: -0.02em; color: #FFFFFF">Argentina + Latam</span>
           <span style="font-size: 17px; color: #B9C4BD">cargas nacionales e internacionales</span>
         </div>
       </div>
@@ -189,13 +203,13 @@ a:focus-visible,button:focus-visible{outline:3px solid #2BD96B;outline-offset:3p
           <li class="rv" style="display: flex; gap: 14px; align-items: flex-start; font-size: 19px; line-height: 1.45; color: #2A322D"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0E8A45" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-top: 2px"><path d="M20 6 9 17l-5-5"></path></svg><span><strong>Seguimiento en vivo.</strong> Ves dónde está cada camión y recibís el remito firmado con foto.</span></li>
           <li class="rv" style="display: flex; gap: 14px; align-items: flex-start; font-size: 19px; line-height: 1.45; color: #2A322D"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0E8A45" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-top: 2px"><path d="M20 6 9 17l-5-5"></path></svg><span><strong>Pagos ordenados.</strong> Pagás cada viaje conformado, por transferencia o cheque, con comprobante.</span></li>
         </ul>
-        <a class="btn" href="#descargar" style="align-self: flex-start; text-decoration: none; display: inline-flex; align-items: center; min-height: 56px; padding: 0 28px; border-radius: 14px; background: #0B0F0D; color: #FFFFFF; font-size: 18px; font-weight: 700">Registrar mi empresa</a>
+        <a class="btn btn-block-sm" href="#descargar" style="align-self: flex-start; text-decoration: none; display: inline-flex; align-items: center; min-height: 56px; padding: 0 28px; border-radius: 14px; background: #0B0F0D; color: #FFFFFF; font-size: 18px; font-weight: 700">Registrar mi empresa</a>
       </div>
-      <div style="flex: 1 1 460px; min-width: 0; display: flex; justify-content: center">
+      <div class="col-end" style="flex: 1 1 460px; min-width: 0; display: flex; justify-content: center">
         <div class="rv" aria-label="Ejemplo: cálculo de precio de una carga" role="img" style="width: 100%; max-width: 480px; padding: 32px; border-radius: 28px; background: #FFFFFF; display: flex; flex-direction: column; gap: 18px; box-shadow: 0 0 0 1px rgba(11,15,13,0.06), 0 30px 60px rgba(11,15,13,0.14)">
           <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px">
             <strong style="font-size: 22px; letter-spacing: -0.01em">Publicar carga</strong>
-            <span style="padding: 6px 12px; border-radius: 999px; background: #E3F8EA; color: #0E8A45; font-size: 14px; font-weight: 700">Precio al instante</span>
+            <span style="white-space: nowrap; padding: 6px 12px; border-radius: 999px; background: #E3F8EA; color: #0E8A45; font-size: 14px; font-weight: 700">Precio al instante</span>
           </div>
           <div style="display: flex; flex-direction: column; gap: 6px">
             <span style="font-size: 14px; font-weight: 600; color: #4A524D">Origen</span>
@@ -211,7 +225,7 @@ a:focus-visible,button:focus-visible{outline:3px solid #2BD96B;outline-offset:3p
           </div>
           <div style="height: 1px; background: #E2E6E3"></div>
           <div style="display: flex; justify-content: space-between; font-size: 16px; color: #4A524D"><span>Distancia por ruta</span><span id="demo-dist" style="font-weight: 600; color: #0B0F0D">589 km</span></div>
-          <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px"><span style="font-size: 16px; font-weight: 600">Total sin IVA</span><span id="demo-precio" style="font-size: 36px; font-weight: 800; letter-spacing: -0.02em; font-variant-numeric: tabular-nums">$ 1.862.000</span></div>
+          <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px"><span style="white-space: nowrap; font-size: 16px; font-weight: 600">Total sin IVA</span><span id="demo-precio" class="demo-total" style="white-space: nowrap; font-size: 36px; font-weight: 800; letter-spacing: -0.02em; font-variant-numeric: tabular-nums">$ 1.862.000</span></div>
           <span id="demo-estado" style="font-size: 14px; font-weight: 600; color: #0E8A45">Precio calculado al instante</span>
           <span id="demo-btn" aria-hidden="true" style="display: flex; align-items: center; justify-content: center; height: 54px; border-radius: 14px; background: #2BD96B; color: #0B0F0D; font-size: 17px; font-weight: 700; transition: background-color .25s ease-out">Publicar y buscar camión</span>
         </div>
@@ -225,16 +239,16 @@ a:focus-visible,button:focus-visible{outline:3px solid #2BD96B;outline-offset:3p
         <div class="notif" aria-hidden="true" style="position: absolute; top: 0; left: 50%; transform: translateX(-50%); z-index: 3; width: min(92%, 440px); display: flex; gap: 12px; align-items: center; padding: 14px 16px; border-radius: 18px; background: rgba(255,255,255,0.97); box-shadow: 0 18px 40px rgba(11,15,13,0.22), 0 0 0 1px rgba(11,15,13,0.06)">
           <span style="flex-shrink: 0; width: 40px; height: 40px; border-radius: 11px; background: #0B0F0D; display: flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2BD96B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 14 4 9l5-5"></path><path d="M4 9h11a5 5 0 0 1 0 10h-3"></path></svg></span>
           <span style="flex-grow: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px">
-            <strong style="font-size: 15px; line-height: 1.25">Hay 1 carga de vuelta cerca de Córdoba</strong>
+            <strong style="font-size: 15px; line-height: 1.25">Hay una carga de vuelta cerca de Córdoba</strong>
             <span style="font-size: 14px; color: #4A524D">Tomala ahora y no volvés vacío.</span>
           </span>
           <span style="flex-shrink: 0; align-self: flex-start; font-size: 13px; color: #7E8A83">ahora</span>
         </div>
-        <div id="tilt" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; align-items: start; transform: perspective(1400px) rotateY(-7deg) rotateX(3deg); transition: transform .3s cubic-bezier(.22,1,.36,1)">
+        <div id="tilt" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; align-items: start; transform: none; transition: transform .3s cubic-bezier(.22,1,.36,1)">
           <div style="padding: 8px; border-radius: 30px; background: #0B0F0D; box-shadow: 0 30px 60px rgba(11,15,13,0.22)">
             <img class="rv" src="assets/cam_home.webp" width="800" height="853" loading="lazy" alt="Inicio del camionero: viaje en curso, ganancias y calificación" style="display: block; width: 100%; height: auto; border-radius: 22px">
           </div>
-          <div style="margin-top: 56px; padding: 8px; border-radius: 30px; background: #0B0F0D; box-shadow: 0 30px 60px rgba(11,15,13,0.22)">
+          <div style="padding: 8px; border-radius: 30px; background: #0B0F0D; box-shadow: 0 30px 60px rgba(11,15,13,0.22)">
             <img class="rv" src="assets/cam_mapa.webp" width="800" height="853" loading="lazy" alt="Mapa del viaje con distancia y hora estimada de llegada" style="display: block; width: 100%; height: auto; border-radius: 22px">
           </div>
         </div>
@@ -245,40 +259,40 @@ a:focus-visible,button:focus-visible{outline:3px solid #2BD96B;outline-offset:3p
         <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 18px">
           <li class="rv" style="display: flex; gap: 14px; align-items: flex-start; font-size: 19px; line-height: 1.45; color: #2A322D"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0E8A45" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-top: 2px"><path d="M20 6 9 17l-5-5"></path></svg><span><strong>Cargas a tu medida.</strong> Solo ves las que tu equipo puede hacer.</span></li>
           <li class="rv" style="display: flex; gap: 14px; align-items: flex-start; font-size: 19px; line-height: 1.45; color: #2A322D"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0E8A45" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-top: 2px"><path d="M20 6 9 17l-5-5"></path></svg><span><strong>Avisos al instante.</strong> Te avisamos cuando aparece una carga, también para la vuelta.</span></li>
-          <li class="rv" style="display: flex; gap: 14px; align-items: flex-start; font-size: 19px; line-height: 1.45; color: #2A322D"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0E8A45" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-top: 2px"><path d="M20 6 9 17l-5-5"></path></svg><span><strong>Sabés cuánto cobrás.</strong> Ves tus ganancias limpias, viaje por viaje.</span></li>
+          <li class="rv" style="display: flex; gap: 14px; align-items: flex-start; font-size: 19px; line-height: 1.45; color: #2A322D"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0E8A45" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-top: 2px"><path d="M20 6 9 17l-5-5"></path></svg><span><strong>Sabés cuánto cobrás.</strong> Ves tus ganancias netas, viaje por viaje.</span></li>
           <li class="rv" style="display: flex; gap: 14px; align-items: flex-start; font-size: 19px; line-height: 1.45; color: #2A322D"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0E8A45" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-top: 2px"><path d="M20 6 9 17l-5-5"></path></svg><span><strong>Tu calificación suma.</strong> Con buen promedio, ves las cargas nuevas 10 minutos antes.</span></li>
           <li class="rv" style="display: flex; gap: 14px; align-items: flex-start; font-size: 19px; line-height: 1.45; color: #2A322D"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0E8A45" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-top: 2px"><path d="M20 6 9 17l-5-5"></path></svg><span><strong>Papeles desde el celular.</strong> Licencia, seguro y RTO cargados una vez, sin ir a ninguna oficina.</span></li>
         </ul>
-        <a class="btn" href="#descargar" style="align-self: flex-start; text-decoration: none; display: inline-flex; align-items: center; min-height: 56px; padding: 0 28px; border-radius: 14px; background: #0B0F0D; color: #FFFFFF; font-size: 18px; font-weight: 700">Sumar mi camión</a>
+        <a class="btn btn-block-sm" href="#descargar" style="align-self: flex-start; text-decoration: none; display: inline-flex; align-items: center; min-height: 56px; padding: 0 28px; border-radius: 14px; background: #0B0F0D; color: #FFFFFF; font-size: 18px; font-weight: 700">Sumar mi camión</a>
       </div>
     </div>
   </section>
 
   <section id="como" style="background: #F3F5F2">
     <div style="max-width: 1200px; margin: 0 auto; padding: 104px 24px; display: flex; flex-direction: column; gap: 40px">
-      <h2 class="rv" style="margin: 0; max-width: 640px; font-size: clamp(34px, 4vw, 52px); line-height: 1.08; font-weight: 800; letter-spacing: -0.025em">Cómo funciona, en cuatro pasos.</h2>
+      <h2 class="rv" style="margin: 0; max-width: 800px; font-size: clamp(34px, 4vw, 52px); line-height: 1.08; font-weight: 800; letter-spacing: -0.025em">Cómo funciona en cuatro pasos.</h2>
       <div aria-hidden="true" style="position: relative; height: 6px; border-radius: 3px; background: #DDE2DE; overflow: hidden">
         <div class="grow" style="position: absolute; inset: 0; border-radius: 3px; background: #2BD96B"></div>
       </div>
-      <ol style="margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px">
+      <ol class="steps-grid" style="margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px">
         <li class="rv card" style="display: flex; flex-direction: column; gap: 14px; padding: 28px; border-radius: 22px; background: #FFFFFF; box-shadow: 0 0 0 1px rgba(11,15,13,0.06)">
           <span style="font-size: 18px; font-weight: 800; color: #0E8A45">01</span>
-          <strong style="font-size: 22px; line-height: 1.2">Publicás la carga</strong>
+          <strong class="step-title" style="font-size: 22px; line-height: 1.2">Publicás la carga</strong>
           <span style="font-size: 17px; line-height: 1.5; color: #4A524D">Origen, destino, fecha, peso y el camión que necesitás.</span>
         </li>
         <li class="rv card" style="display: flex; flex-direction: column; gap: 14px; padding: 28px; border-radius: 22px; background: #FFFFFF; box-shadow: 0 0 0 1px rgba(11,15,13,0.06)">
           <span style="font-size: 18px; font-weight: 800; color: #0E8A45">02</span>
-          <strong style="font-size: 22px; line-height: 1.2">Ves el precio al instante</strong>
+          <strong class="step-title" style="font-size: 22px; line-height: 1.2">Ves el precio al instante</strong>
           <span style="font-size: 17px; line-height: 1.5; color: #4A524D">El sistema lo calcula por distancia y carga. Sin idas y vueltas.</span>
         </li>
         <li class="rv card" style="display: flex; flex-direction: column; gap: 14px; padding: 28px; border-radius: 22px; background: #FFFFFF; box-shadow: 0 0 0 1px rgba(11,15,13,0.06)">
           <span style="font-size: 18px; font-weight: 800; color: #0E8A45">03</span>
-          <strong style="font-size: 22px; line-height: 1.2">Un camionero verificado la toma</strong>
-          <span style="font-size: 17px; line-height: 1.5; color: #4A524D">La carga se ofrece sola a los que cumplen. El primero que acepta se queda el viaje.</span>
+          <strong class="step-title" style="font-size: 22px; line-height: 1.2">Un camionero verificado la toma</strong>
+          <span style="font-size: 17px; line-height: 1.5; color: #4A524D">La carga se ofrece sola a los que cumplen. El primero que acepta se queda con el viaje.</span>
         </li>
         <li class="rv card" style="display: flex; flex-direction: column; gap: 14px; padding: 28px; border-radius: 22px; background: #0B0F0D; color: #FFFFFF">
           <span style="font-size: 18px; font-weight: 800; color: #2BD96B">04</span>
-          <strong style="font-size: 22px; line-height: 1.2">Seguís el viaje y pagás</strong>
+          <strong class="step-title" style="font-size: 22px; line-height: 1.2">Seguís el viaje y pagás</strong>
           <span style="font-size: 17px; line-height: 1.5; color: #B9C4BD">Mapa en vivo, remito firmado con foto y pago con comprobante.</span>
         </li>
       </ol>
@@ -301,7 +315,7 @@ a:focus-visible,button:focus-visible{outline:3px solid #2BD96B;outline-offset:3p
         <div class="rv card" style="display: flex; flex-direction: column; gap: 16px; padding: 36px; border-radius: 24px; background: #0B0F0D; color: #FFFFFF">
           <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#2BD96B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18"></path><path d="M12 3a14 14 0 0 1 0 18"></path><path d="M12 3a14 14 0 0 0 0 18"></path></svg>
           <strong style="font-size: 26px; line-height: 1.15; letter-spacing: -0.01em">Cargas internacionales</strong>
-          <span style="font-size: 18px; line-height: 1.5; color: #B9C4BD">Importación y exportación con toda Latinoamérica, con camioneros habilitados para cruzar la frontera y el viaje seguido de punta a punta.</span>
+          <span style="font-size: 18px; line-height: 1.5; color: #B9C4BD">Importación y exportación con toda Latinoamérica. Camioneros habilitados para cruzar la frontera y seguimiento del viaje de punta a punta.</span>
         </div>
       </div>
     </div>
@@ -328,7 +342,7 @@ a:focus-visible,button:focus-visible{outline:3px solid #2BD96B;outline-offset:3p
         <h2 class="rv" style="margin: 0; font-size: clamp(36px, 4.6vw, 60px); line-height: 1.04; font-weight: 800; letter-spacing: -0.03em">Bajate la app y empezá hoy.</h2>
         <p style="margin: 0; font-size: 20px; line-height: 1.5; color: #12331F">Una sola app para empresas y camioneros, en Argentina y toda Latinoamérica.</p>
       </div>
-      <div style="display: flex; flex-wrap: wrap; gap: 14px">
+      <div class="cta-row" style="display: flex; flex-wrap: wrap; gap: 14px">
         <a href="#descargar" class="btn" style="text-decoration: none; display: inline-flex; align-items: center; gap: 12px; min-height: 60px; padding: 0 26px; border-radius: 14px; background: #0B0F0D; color: #FFFFFF; font-size: 18px; font-weight: 700"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"></path><path d="m7 10 5 5 5-5"></path><path d="M5 21h14"></path></svg>App Store</a>
         <a href="#descargar" class="btn" style="text-decoration: none; display: inline-flex; align-items: center; gap: 12px; min-height: 60px; padding: 0 26px; border-radius: 14px; background: #0B0F0D; color: #FFFFFF; font-size: 18px; font-weight: 700"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"></path><path d="m7 10 5 5 5-5"></path><path d="M5 21h14"></path></svg>Google Play</a>
         <a href="mailto:soporte@cargastcg.com" class="btn" style="text-decoration: none; display: inline-flex; align-items: center; min-height: 60px; padding: 0 26px; border-radius: 14px; border: 2px solid #0B0F0D; color: #0B0F0D; font-size: 18px; font-weight: 700">Escribinos</a>
@@ -435,7 +449,7 @@ a:focus-visible,button:focus-visible{outline:3px solid #2BD96B;outline-offset:3p
 
   // Celulares en 3D que siguen el mouse
   var tilt = document.getElementById('tilt');
-  var rest = 'perspective(1400px) rotateY(-7deg) rotateX(3deg)';
+  var rest = 'none';
   var raf = null;
   if (window.matchMedia('(hover: hover)').matches) {
     tilt.addEventListener('mousemove', function (e) {
@@ -444,7 +458,7 @@ a:focus-visible,button:focus-visible{outline:3px solid #2BD96B;outline-offset:3p
       var y = (e.clientY - r.top) / r.height - 0.5;
       if (raf) cancelAnimationFrame(raf);
       raf = requestAnimationFrame(function () {
-        tilt.style.transform = 'perspective(1400px) rotateY(' + (x * 12).toFixed(2) + 'deg) rotateX(' + (-y * 9).toFixed(2) + 'deg)';
+        tilt.style.transform = 'perspective(1400px) rotateY(' + (x * 8).toFixed(2) + 'deg) rotateX(' + (-y * 6).toFixed(2) + 'deg)';
       });
     });
     tilt.addEventListener('mouseleave', function () { tilt.style.transform = rest; });
