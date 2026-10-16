@@ -13,7 +13,6 @@ Es un sitio estático (HTML, CSS y JavaScript, sin compilar), así que se puede 
 ## Pendientes antes de lanzar
 
 - Poner los links reales de App Store y Google Play (hoy apuntan a `#descargar`).
-- Reemplazar los corredores de la franja de rutas por corredores reales.
 - Actualizar `APP_LOGIN_URL` en el script del final de `index.html` cuando la app tenga su dominio definitivo.
 
 Desarrollado por Azzenda.
